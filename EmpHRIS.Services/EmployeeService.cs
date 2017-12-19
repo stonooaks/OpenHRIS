@@ -1,8 +1,9 @@
 ﻿using EmpHRIS.Interfaces;
-using EmpHRIS.Models;
+using EmpHRIS.Entities;
 using EmpHRIS.Repository;
 using Microsoft.EntityFrameworkCore;
 using System;
+using EmpHRIS.ViewModels;
 
 namespace EmpHRIS.Services
 {
@@ -12,37 +13,86 @@ namespace EmpHRIS.Services
         private readonly IEmployeeRepository _empRepo;
         private readonly ICityRepository _cityRepo;
         private readonly IAddressRepository _addrRepo;
-        public EmployeeService(IEmployeeRepository empRepo, ICityRepository cityRepo, IAddressRepository addrRepo)
+        private readonly IPersonRepository _personRepo;
+        public EmployeeService(IEmployeeRepository empRepo, ICityRepository cityRepo, IAddressRepository addrRepo, IPersonRepository personRepo)
         {
             _empRepo = empRepo;
             _cityRepo = cityRepo;
             _addrRepo = addrRepo;
+            _personRepo = personRepo;
 
+        }
+
+        public void AddEmployee(EmployeeViewModel employee)
+        {
+            Person p = createPerson(employee);
+            _personRepo.Add(p);
+            _addrRepo.Add(createAddress(employee, p.Id, true));
+            _empRepo.Add(createEmployee(employee, p.Id));
+
+
+
+        }
+
+        #region Private Methods
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="employee"></param>
+        /// <param name="personId"></param>
+        /// <param name="IsHome"></param>
+        /// <returns></returns>
+        private Address createAddress(EmployeeViewModel employee, int personId, bool IsHome) {
+            return new Address()
+            {
+                StreetAddress1 = employee.Address1,
+                StreetAddress2 = employee.Address2,
+                City = _cityRepo.FindbyZipcode(employee.ZipCode),
+                PersonId = personId,
+                IsHome = IsHome
+            };
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="employee"></param>
+        /// <returns></returns>
+        private Person createPerson(EmployeeViewModel employee) {
+
+
+            return new Person()
+            {
+                FirstName = employee.FirstName,
+                LastName = employee.LastName,
+                MiddleName = employee.MiddleName,
+                NationalId = employee.NationalId,
+                BirthDate = employee.BirthDate
+            };
         }
 
         /// <summary>
-        /// Adds a employees address
+        /// 
         /// </summary>
-        /// <param name="PersonId"></param>
-        /// <param name="StreetAddress1"></param>
-        /// <param name="StreetAddress2"></param>
-        /// <param name="ZipCode"></param>
-        /// <returns>Address</returns>
-        public void AddAddress(int PersonId, string StreetAddress1, string StreetAddress2, string ZipCode)
-        {          
-            Address NewAddress = new Address()
+        /// <param name="employee"></param>
+        /// <param name="personId"></param>
+        /// <returns></returns>
+        private Employee createEmployee(EmployeeViewModel employee, int personId)
+        {
+            return new Employee()
             {
-
-                StreetAddress1 = StreetAddress1,
-                StreetAddress2 = StreetAddress2,
-                City = _cityRepo.FindbyZipcode(ZipCode),
-                PersonId = PersonId
+                empId = employee.empId,
+                Person = _personRepo.Find(personId),
+                ServiceDate = employee.ServiceDate
             };
-
-            _addrRepo.Add(NewAddress);
-            _addrRepo.SaveChanges();
         }
+        #endregion
 
-        
     }
+
+
+
+
+
+
+
 }

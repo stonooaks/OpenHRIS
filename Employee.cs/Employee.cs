@@ -7,7 +7,7 @@ namespace EmpHRIS.Entities
     {
         public int Id { get; set; }
         public string empId { get; set; }
-        public List<CodeHeader> Codes { get; set; }
+        public virtual List<CodeHeader> Codes { get; set; }
         public DateTime ServiceDate { get; set; }
         public Person Person { get; set; }
     }
