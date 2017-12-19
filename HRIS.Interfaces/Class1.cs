@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Person.Interfaces
+namespace HRIS.Interfaces
 {
     public class Class1
     {

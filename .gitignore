@@ -259,3 +259,12 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+/EmployeeApi/appsettings.Development.json
+/EmployeeApi/appsettings.json
+/EmployeeApi/Dockerfile
+/.dockerignore
+/docker-compose.yml
+/docker-compose.override.yml
+/docker-compose.dcproj
+/docker-compose.ci.build.yml
+/Employee.cs/Migrations
