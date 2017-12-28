@@ -9,8 +9,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\EmpHRIS.Entities\EmpHRIS.Entities.csproj" />
+    <ProjectReference Include="..\EmpHRIS.Interfaces\EmpHRIS.Interfaces.csproj" />
     <ProjectReference Include="..\Employee.cs\EmpHRIS.Entities.csproj" />
     <ProjectReference Include="..\Employee.Interfaces\EmpHRIS.Interfaces.csproj" />
+    <ProjectReference Include="..\HRIS.Interfaces\HRIS.Interfaces.csproj" />
   </ItemGroup>
 
 </Project>

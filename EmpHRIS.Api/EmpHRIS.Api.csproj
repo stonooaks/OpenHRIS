@@ -19,8 +19,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\EmpHRIS.Entities\EmpHRIS.Entities.csproj" />
+    <ProjectReference Include="..\EmpHRIS.Interfaces\EmpHRIS.Interfaces.csproj" />
+    <ProjectReference Include="..\EmpHRIS.Respository\EmpHRIS.Repository.csproj" />
     <ProjectReference Include="..\Employee.cs\EmpHRIS.Entities.csproj" />
     <ProjectReference Include="..\Employee.Service\EmpHRIS.Repository.csproj" />
+    <ProjectReference Include="..\HRIS.Interfaces\HRIS.Interfaces.csproj" />
   </ItemGroup>
 
 </Project>

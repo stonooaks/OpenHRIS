@@ -11,7 +11,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using EmpHRIS.Entities;
 using EmpHRIS.Repository;
-using EmpHRIS.Interfaces;
+using HRIS.Interfaces;
 
 namespace EmpHRIS.Api
 {
@@ -28,11 +28,7 @@ namespace EmpHRIS.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-
-            services.AddScoped<ICityRepository, CityRepository>();
-            services.AddScoped<IEmployeeRepository, EmployeeRepository>();
-            services.AddScoped<IAddressRepository, AddressRepository>();
-                        
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddDbContext<EmployeeContext>(options => options.UseSqlServer(Configuration.GetConnectionString("EmployeeDatabase")));
         }
 

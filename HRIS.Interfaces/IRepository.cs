@@ -14,7 +14,6 @@ namespace HRIS.Interfaces
         void Delete(T Entity);
         void SaveChanges();
         Task SaveChangesAsync();
-        bool Exists(object id);
 
     }
 
