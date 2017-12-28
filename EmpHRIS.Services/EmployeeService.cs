@@ -29,7 +29,7 @@ namespace EmpHRIS.Services
             _personRepo.Add(p);
             _addrRepo.Add(createAddress(employee, p.Id, true));
             _empRepo.Add(createEmployee(employee, p.Id));
-
+            _empRepo.SaveChanges();
 
 
         }
