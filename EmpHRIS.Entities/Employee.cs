@@ -1,26 +1,24 @@
-﻿using System;
+﻿using HRIS.Interfaces;
+using System;
 using System.Collections.Generic;
 
 namespace EmpHRIS.Entities
 {
-    public class Employee
+    public class Employee : EntityData
     {
-        public int Id { get; set; }
         public string empId { get; set; }
         public virtual List<CodeHeader> Codes { get; set; }
         public DateTime ServiceDate { get; set; }
         public Person Person { get; set; }
     }
 
-    public class CodeHeader
+    public class CodeHeader : EntityData
     {
-        public int Id { get; set; }
         public string Code { get; set; }
     }
 
-    public class CodeDetail
+    public class CodeDetail : EntityData
     {
-        public int Id { get; set; }
         public CodeHeader Code { get; set; }
         public string Detail { get; set; }
     }
