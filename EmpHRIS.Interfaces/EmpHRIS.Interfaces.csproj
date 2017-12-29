@@ -10,7 +10,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\EmpHRIS.Entities\EmpHRIS.Entities.csproj" />
-    <ProjectReference Include="..\Employee.cs\EmpHRIS.Entities.csproj" />
     <ProjectReference Include="..\HRIS.Interfaces\HRIS.Interfaces.csproj" />
   </ItemGroup>
 

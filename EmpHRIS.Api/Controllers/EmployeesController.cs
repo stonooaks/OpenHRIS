@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using EmpHRIS.Entities;
-using EmpHRIS.Interfaces;
+using HRIS.Interfaces;
 
 namespace EmpHRIS.Api.Controllers
 {
@@ -14,9 +14,9 @@ namespace EmpHRIS.Api.Controllers
     [Route("api/Employees")]
     public class EmployeesController : Controller
     {
-        private readonly IEmployeeRepository _empRepo;
+        private readonly IRepository<Employee> _empRepo;
 
-        public EmployeesController(IEmployeeRepository empRepo)
+        public EmployeesController(IRepository<Employee> empRepo)
         {
             _empRepo = empRepo;
         }
@@ -63,23 +63,9 @@ namespace EmpHRIS.Api.Controllers
 
             _empRepo.Update(employee);
 
-            try
-            {
-                await _empRepo.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!EmployeeExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
+            await _empRepo.SaveChangesAsync();
+            
+                        return NoContent();
         }
 
         // POST: api/Employees
@@ -118,9 +104,5 @@ namespace EmpHRIS.Api.Controllers
             return Ok(employee);
         }
 
-        private bool EmployeeExists(int id)
-        {
-            return _empRepo.Exists(id);
-        }
     }
 }

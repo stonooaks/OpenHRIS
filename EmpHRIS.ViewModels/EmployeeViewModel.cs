@@ -1,6 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using HRIS.Interfaces;
+
 
 
 namespace EmpHRIS.ViewModels
@@ -9,9 +9,7 @@ namespace EmpHRIS.ViewModels
     {
 
         [EmpId(ErrorMessage = "{0} is not a valid Employee Id")]
-        public string empId { get; set; }
-
-
+        public string EmpId { get; set; }
         public string FirstName { get; set; }
         public string MiddleName { get; set; }
         public string LastName { get; set; }
