@@ -1,12 +1,12 @@
-﻿using HRIS.Interfaces;
+﻿using empHRIS.Domain.SeedWork;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace EmpHRIS.Entities
+namespace EmpHRIS.Domain.AggregateModel.PositionAggregate
 {
-    public class Position : EntityData
+    public class Position : EntityData, IAggregateRoot
     {
         public PosClass posClass { get; set; }
         public DateTime effDate { get; set; }

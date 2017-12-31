@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace EmpHRIS.ViewModels
 {
-    public class EmployeeViewModel
+    public class EmployeeVM
     {
 
         [EmpId(ErrorMessage = "{0} is not a valid Employee Id")]

@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using EmpHRIS.Entities;
-using HRIS.Interfaces;
+using HRIS.Common;
 
 namespace EmpHRIS.Api.Controllers
 {

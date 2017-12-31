@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace HRIS.Common
+namespace empHRIS.Domain.SeedWork
 {
     public abstract class EntityData
     {

@@ -1,5 +1,5 @@
 ﻿using EmpHRIS.Entities;
-using HRIS.Interfaces;
+using HRIS.Common;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
