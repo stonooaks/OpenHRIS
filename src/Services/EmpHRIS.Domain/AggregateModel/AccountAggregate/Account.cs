@@ -8,7 +8,7 @@ namespace EmpHRIS.Domain.AggregateModel.AccountAggregate
     public class Account : EntityData, IAggregateRoot
     {
         public string AccountNumber { get; set; }
-        public CostCenter Unit { get; set; }
+        public CostCenter CostCenter { get; set; }
         public Entity Entity { get; set; }
         public Project Project { get; set; }
         public Reporting Reporting { get; set; }

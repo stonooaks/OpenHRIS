@@ -58,6 +58,11 @@ namespace EmpHRIS.Infrastructure
             builder.ApplyConfiguration(new AddressEntityTypeConfiguration());
             builder.ApplyConfiguration(new CodeEntityTypeConfiguration());
             builder.ApplyConfiguration(new CodeHeaderEntityTypeConfiguration());
+            builder.ApplyConfiguration(new AccountEntityTypeConfiguration());
+            builder.ApplyConfiguration(new EntityEntityTypeConfiguration());
+            builder.ApplyConfiguration(new ProjectEntityTypeConfiguration());
+            builder.ApplyConfiguration(new ReportingEntityTypeConfiguration());
+            builder.ApplyConfiguration(new CostCenterEntityTypeConfiguration());
         }
 
         public async Task<bool> SaveEntitiesAsync(CancellationToken cancellationToken = default(CancellationToken))
