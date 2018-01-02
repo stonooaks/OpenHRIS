@@ -11,14 +11,14 @@ namespace EmpHRIS.Infrastructure.EntityConfigurations
     {
         public void Configure(EntityTypeBuilder<Reporting> builder)
         {
-            builder.ToTable("reporting", EmployeeContext.DEFAULT_SCHEMA);
+            builder.ToTable("reporting", AssignContext.DEFAULT_SCHEMA);
 
             builder.HasKey(a => a.Id);
 
             builder.Ignore(a => a.DomainEvents);
 
             builder.Property(b => b.Id)
-                .ForSqlServerUseSequenceHiLo("reptseq", EmployeeContext.DEFAULT_SCHEMA);
+                .ForSqlServerUseSequenceHiLo("reptseq", AssignContext.DEFAULT_SCHEMA);
 
             builder.Property<string>("Code")
                     .HasMaxLength(100)

@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AssignHRIS.Domain\AssignHRIS.Domain.csproj" />
     <ProjectReference Include="..\EmpHRIS.Domain\EmpHRIS.Domain.csproj" />
     <ProjectReference Include="..\EmpHRIS.Entities\EmpHRIS.Domain.csproj" />
   </ItemGroup>

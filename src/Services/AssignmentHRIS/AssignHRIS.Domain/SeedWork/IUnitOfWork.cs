@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace empHRIS.Domain.SeedWork
+namespace AssignHRIS.Domain.SeedWork
 {
     public interface IUnitOfWork : IDisposable
     {

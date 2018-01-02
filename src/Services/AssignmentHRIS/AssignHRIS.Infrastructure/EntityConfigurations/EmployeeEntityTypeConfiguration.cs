@@ -9,11 +9,11 @@ namespace EmpHRIS.Infrastructure.EntityConfigurations
     {
         public void Configure(EntityTypeBuilder<Employee> employeeConfiguration)
         {
-            employeeConfiguration.ToTable("employee", EmployeeContext.DEFAULT_SCHEMA);
+            employeeConfiguration.ToTable("employee", AssignContext.DEFAULT_SCHEMA);
             employeeConfiguration.HasKey(e => e.Id);
             employeeConfiguration.Ignore(e => e.DomainEvents);
             employeeConfiguration.Property(b => b.Id)
-                .ForSqlServerUseSequenceHiLo("empseq", EmployeeContext.DEFAULT_SCHEMA);
+                .ForSqlServerUseSequenceHiLo("empseq", AssignContext.DEFAULT_SCHEMA);
 
             employeeConfiguration.HasMany(e => e.PersonAddresses);
 

@@ -1,28 +1,21 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using empHRIS.Domain.SeedWork;
-using EmpHRIS.Domain.AggregateModel.AssignmentAggregate;
-using EmpHRIS.Domain.AggregateModel.EmployeeAggregate;
-using EmpHRIS.Domain.AggregateModel.EmploymentAggregate;
-using EmpHRIS.Domain.AggregateModel.PositionAggregate;
-using EmpHRIS.Domain.AggregateModel.StatusAggregate;
-using EmpHRIS.Domain.AggregateModel.AccountAggregate;
-using EmpHRIS.Infrastructure.EntityConfigurations;
+using AssignHRIS.Domain.SeedWork;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 
 namespace EmpHRIS.Infrastructure
 {
-    public class EmployeeContext : DbContext, IUnitOfWork
+    public class AssignContext : DbContext, IUnitOfWork
     {
         private readonly IMediator _mediator;
 
-        private EmployeeContext(DbContextOptions<EmployeeContext> options)
+        private AssignContext(DbContextOptions<AssignContext> options)
                : base(options) { }
 
-        public EmployeeContext(DbContextOptions<EmployeeContext> options, IMediator mediator) : base(options)
+        public AssignContext(DbContextOptions<AssignContext> options, IMediator mediator) : base(options)
         {
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
 
@@ -30,9 +23,6 @@ namespace EmpHRIS.Infrastructure
         }
 
         public const string DEFAULT_SCHEMA = "employee";
-        public DbSet<Employee> Employees { get; set; }
-        public DbSet<Address> Address { get; set; }
-        public DbSet<CodeHeader> CodeHeaders { get; set; }
         public DbSet<Assignment> Assignment { get; set; }
         public DbSet<Position> Position { get; set; }
         public DbSet<PosClass> PosClass { get; set; }
@@ -75,14 +65,14 @@ namespace EmpHRIS.Infrastructure
         }
     }
 
-    public class EmployeeContextDesignFactory : IDesignTimeDbContextFactory<EmployeeContext>
+    public class EmployeeContextDesignFactory : IDesignTimeDbContextFactory<AssignContext>
     {
-        public EmployeeContext CreateDbContext(string[] args)
+        public AssignContext CreateDbContext(string[] args)
         {
-            var optionsBuilder = new DbContextOptionsBuilder<EmployeeContext>()
+            var optionsBuilder = new DbContextOptionsBuilder<AssignContext>()
                 .UseSqlServer("");
 
-            return new EmployeeContext(optionsBuilder.Options,new NoMediator());
+            return new AssignContext(optionsBuilder.Options,new NoMediator());
         }
     
         class NoMediator : IMediator

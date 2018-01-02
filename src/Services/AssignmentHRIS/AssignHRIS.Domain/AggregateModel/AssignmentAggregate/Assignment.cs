@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace EmpHRIS.Domain.AggregateModel.AssignmentAggregate
+namespace AssignHRIS.Domain.AggregateModel.AssignmentAggregate
 {
 
 
