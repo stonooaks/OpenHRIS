@@ -6,7 +6,7 @@ namespace EmpHRIS.Domain.AggregateModel.EmployeeAggregate
     public interface IEmployeeRepository : IRepository<Employee>
     {
         Employee Add(Employee employee);
-        Employee Update(Employee employee);
-        Task<Employee> FindAsync(string empId);
+        void Update(Employee employee);
+        Task<Employee> FindAsync(int id);
     }
 }

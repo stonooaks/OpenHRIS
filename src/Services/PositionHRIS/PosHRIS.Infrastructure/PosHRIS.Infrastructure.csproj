@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EmpHRIS.Domain\EmpHRIS.Domain.csproj" />
+    <ProjectReference Include="..\EmpHRIS.Entities\EmpHRIS.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
